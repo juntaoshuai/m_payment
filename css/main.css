@@ -1,12 +1,13 @@
 @charset "utf-8";
 body, h1, h2, h3, h4, h5, h6, hr, div, p, blockquote, dl, dt, dd, ul, ol, li, pre, code, form, fieldset, legend, input, textarea, button, th, td, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { margin: 0; padding: 0; box-sizing: border-box; }
-html { color: #000; background: #fff; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-size: 50px; }
-body, button, input, select, textarea { font-family: 'Microsoft Yahei', helvetica, arial; font-size: 0.3rem;max-width: 750px; }
+html { color: #000; background: #fff; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-size: 50px; height: 100%;}
+body{min-height: 100%;}
+body, button, input, select, textarea { font-family: 'Microsoft Yahei', helvetica, arial; font-size: 0.3rem;max-width: 750px;margin:0 auto; }
 html, body { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block }
 audio, canvas, video { display: inline-block }
 input, select, textarea { font-size: 100% }
-input[type="text"], input[type="radio"], input[type='email'], input[type='password'] { -webkit-appearance: none; appearance: none; }
+input[type="text"],input[type="button"],input[type="submit"], input[type="radio"], input[type='email'], input[type='password'] { -webkit-appearance: none; appearance: none; }
 textarea { resize: vertical }
 textarea[contenteditable] { -webkit-appearance: none }
 table { border-collapse: collapse; border-spacing: 0 }
@@ -31,20 +32,60 @@ ins, a { text-decoration: none }
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; } 
 
 @media screen and (min-width: 320px) {
-  html{font-size: 43px;}   
+  html{font-size: 44px;}   
 } 
 @media screen and (min-width: 360px) {
-  html{font-size: 48px;}   
-} 
-@media screen and (min-width: 375px) {
   html{font-size: 50px;}   
 } 
+@media screen and (min-width: 375px) {
+  html{font-size: 52px;}   
+} 
 @media screen and (min-width: 414px) {
-  html{font-size: 55px;}   
+  html{font-size: 58px;}   
+} 
+@media screen and (min-width: 720px) {
+  html{font-size: 100px;}   
 } 
 
 #header{padding:.15rem 0 .22rem .24rem;}
 #header .logo img{width:1.44rem;height: .43rem;}
 #header h1{font-size: .22rem;color:#444;margin-top:.22rem;line-height:.22rem;margin-left: .12rem;}
 
-#banner{background:url(../images/banner.png) center top no-repeat;background-size:100% 100%;width:100%;height:3rem;}
+#banner{background:url(../images/banner.png) center top no-repeat;background-size:100% 100%;width:100%;height:3rem;border-bottom:.15rem solid #e5e5e5;}
+
+.ticket-list li{border-bottom:1px solid #e1e1e1;padding: .25rem .23rem .28rem;}
+.ticket-list .ticket-left h3{font-size: .3rem;color:#000;}
+.ticket-list  .price{font-size: .3rem;font-weight: bold;color:#c60000;}
+.ticket-list .discount{width:.9rem;height:.25rem;background: #fe9900;font-size:.18rem;color:#fff;border-radius:.05rem;padding: 0 .12rem;}
+.ticket-list .explain{background: #fff4c7;}
+.ticket-list .num-opera{margin-top: .09rem;}
+.ticket-list .num-opera span{float: left;}
+.ticket-list .add,.ticket-list .cut{width:.38rem;height: .38rem; line-height: .38rem; border:1px solid #e1e1e1;font-size: .24rem;color:#c60000;font-weight: bold;background: #fff;border-radius: 0;position: relative;text-align: center;cursor:pointer;}
+.ticket-list .cut:before{content:"";position: absolute;left:.1rem;top:.17rem;width:.18rem;height: .04rem;background: #c60000;overflow: hidden;}
+.ticket-list .num-opera .num{font-size: .26rem;color:#4c4c4c;padding: 0 .08rem;}
+.ticket-list .explain{padding: 0 .25rem .14rem .1rem;margin-top:.28rem;}
+.ticket-list .explain h4{font-size:.24rem;line-height: .4rem;padding-top: .05rem; color:#ff9a0f;background: url(../images/ico_clock.png) 0 center no-repeat;background-size: .23rem .25rem;padding-left:.3rem;}
+.ticket-list .explain p{font-size: .22rem;line-height: .3rem; color:#878169;padding-left: .3rem;}
+.pricewrap{margin-top: .09rem;}
+
+.place{height: 1.25rem;}
+
+.footer{width:100%;max-width: 750px; box-sizing: border-box; background: #c60000;padding: .28rem .23rem;overflow: hidden;position:fixed;bottom:0;}
+.footer .total{font-size: .4rem;color:#fff;}
+.w-btn{width:1.84rem;height: .69;background: #fbfbfb;border-radius: .05rem;border:none;font-size:.3rem;color:#c60000;line-height: .69rem;}
+
+/*order*/
+.bggrey{background: #e5e5e5;}
+.selected-ticket .shd{background: #f3f4f8;border-bottom:1px solid #ccc;height: .66rem;line-height: .66rem; text-align: right;font-size: .26rem;color:#48494a;padding: 0 .23rem;margin:.15rem 0;}
+
+.selected-ticket .shd a{color:#48494a;}
+.selected-ticket-list{padding: 0 .23rem 0 .24rem;background: #fff;}
+.selected-ticket-list li{background:url(../images/ticket_bg.png) 0 0 no-repeat;background-size:100%;height: 2rem;}
+.selected-ticket-list .ticket-left{width:4.89rem;padding-left:.3rem;}
+.selected-ticket-list .ticket-left h3{font-size: .34rem;line-height:.34rem;color:#643e0d;border-bottom:1px solid #b79860;padding-top:.3rem;padding-bottom: .35rem;}
+.selected-ticket-list  .price{font-size: .4rem;font-weight: bold;color:#e94520;}
+.selected-ticket-list .discount{font-size:.2rem;color:#755323;padding: 0 .12rem;position: relative;}
+.selected-ticket-list .discount:after{content:url(../images/ico_arrow.png);width:.08rem;height: .08rem;position: absolute;bottom: 10px;right:-3px;}
+.selected-ticket-list .ticket-right{width:1.84rem;text-align: center;}
+.selected-ticket-list .remark{font-size: .2rem;line-height:.2rem; color:#d4d4d4;padding: .37rem 0 .65rem;}
+.selected-ticket-list .num{font-size: .34rem;line-height: .34rem; font-weight: bold;color:#f9d17a;}
