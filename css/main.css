@@ -8,6 +8,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 audio, canvas, video { display: inline-block }
 input, select, textarea { font-size: 100% }
 input[type="text"],input[type="button"],input[type="submit"], input[type="radio"], input[type='email'], input[type='password'] { -webkit-appearance: none; appearance: none; }
+input:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-user-modify:read-write-plaintext-only;
+}
 textarea { resize: vertical }
 textarea[contenteditable] { -webkit-appearance: none }
 table { border-collapse: collapse; border-spacing: 0 }
@@ -31,10 +35,13 @@ ins, a { text-decoration: none }
 .clear{clear:both;line-height:0;}
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; } 
 
-@media screen and (min-width: 320px) {
+/*@media screen and (min-width: 320px) {
   html{font-size: 44px;}   
 } 
 @media screen and (min-width: 360px) {
+  html{font-size: 50px;}   
+} */
+@media screen and (min-width: 320px) {
   html{font-size: 50px;}   
 } 
 @media screen and (min-width: 375px) {
@@ -79,13 +86,70 @@ ins, a { text-decoration: none }
 .selected-ticket .shd{background: #f3f4f8;border-bottom:1px solid #ccc;height: .66rem;line-height: .66rem; text-align: right;font-size: .26rem;color:#48494a;padding: 0 .23rem;margin:.15rem 0;}
 
 .selected-ticket .shd a{color:#48494a;}
-.selected-ticket-list{padding: 0 .23rem 0 .24rem;background: #fff;}
-.selected-ticket-list li{background:url(../images/ticket_bg.png) 0 0 no-repeat;background-size:100%;height: 2rem;}
-.selected-ticket-list .ticket-left{width:4.89rem;padding-left:.3rem;}
+.selected-ticket-list{padding: .2rem .23rem .03rem .24rem;background: #fff;}
+.selected-ticket-list li{background:url(../images/ticket_bg.png) 0 0 no-repeat;background-size:100%;height: 2rem;margin-bottom: .25rem;}
+.selected-ticket-list .ticket-left{padding-left:.3rem;width:4.2rem;}
 .selected-ticket-list .ticket-left h3{font-size: .34rem;line-height:.34rem;color:#643e0d;border-bottom:1px solid #b79860;padding-top:.3rem;padding-bottom: .35rem;}
 .selected-ticket-list  .price{font-size: .4rem;font-weight: bold;color:#e94520;}
 .selected-ticket-list .discount{font-size:.2rem;color:#755323;padding: 0 .12rem;position: relative;}
 .selected-ticket-list .discount:after{content:url(../images/ico_arrow.png);width:.08rem;height: .08rem;position: absolute;bottom: 10px;right:-3px;}
-.selected-ticket-list .ticket-right{width:1.84rem;text-align: center;}
+.selected-ticket-list .ticket-right{/*width:1.84rem;*/padding-right: .25rem;text-align: center;}
 .selected-ticket-list .remark{font-size: .2rem;line-height:.2rem; color:#d4d4d4;padding: .37rem 0 .65rem;}
 .selected-ticket-list .num{font-size: .34rem;line-height: .34rem; font-weight: bold;color:#f9d17a;}
+.form{background: #fff;}
+.title h3{font-size: .28rem;height:.28rem;color:#333;position: relative;padding-left: .19rem;}
+.title h3:before{content: "";position: absolute;width:.1rem;height: .25rem; background: #c60000;left:0;top:.08rem;}
+.relation-info{padding:0 .77rem 0 .24rem;}
+
+/*表单*/
+.form{margin-top: .15rem;padding:0 0 .25rem;}
+.form .form-item {
+    margin:.25rem 0;
+    display:box;
+    display:-webkit-box;
+    width:100%;
+}
+
+.form .item-l{
+    font-size:.24rem;
+    line-height:.65rem;
+    color: #0e0d0d;
+    width:1.4rem;
+    text-align: right;
+    margin-right:.1rem;
+    color:#000;
+    display: block;
+    box-sizing: border-box;
+}
+.form .item-r{
+	width: 100%;
+	box-flex:1;
+	 -webkit-box-flex:1;
+   -moz-box-flex:1;
+}
+
+.form .xin {
+    color: #c81a19;
+    font-size:.24rem;
+    margin-right:.08rem;
+    font-weight: normal;
+
+}
+
+.form .txt {
+   width:100%;
+    height:.63rem;
+    font-size: 14px;
+    text-indent: 8px;
+    border: 1px solid #e1e1e1;
+    background: #fff;
+    font-size:.24rem;
+    color: #0e0d0d;
+    border-radius: 3px;
+    outline: none;
+    display: block;
+    
+}
+
+.item-r .fptype span{margin:0 20px 0 5px; display: inline-block;vertical-align: middle;}
+.item-r .fptype input{vertical-align: middle;}

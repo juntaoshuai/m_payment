@@ -14,11 +14,11 @@
 <body class="bggrey">
     <div id="main">
         <div class="selected-ticket">
-        	<div class="shd">
-        		<h3 class="fl">已选门票信息</h3>
-        		<a href="#">重新选票 >></a>
-        	</div>
-        	<ul class="selected-ticket-list">
+            <div class="shd">
+                <h3 class="fl">已选门票信息</h3>
+                <a href="#">重新选票 >></a>
+            </div>
+            <ul class="selected-ticket-list">
                 <li>
                     <div class="ticket-left fl">
                         <h3>投融资专场</h3>
@@ -45,17 +45,63 @@
                         <p class="num">2张</p>
                     </div>
                 </li>
-        	</ul>
+            </ul>
         </div>
-        <form action="" method="post">
-            
+        <form action="" method="post" class="form" id="ticketForm">
+            <div class="relation-info">
+                <div class="title">
+                    <h3>联系人信息</h3>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>姓名：</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="userName" required="required">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l">部门/职务:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="userName">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>手机/电话:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="telephone">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>邮       箱: </span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="email">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>公司名称:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="companyName">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>邮寄地址:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="address">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l">备       注: </span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="remark">
+                    </div>
+                </div>
+            </div>
+            <div class="place"></div>
+            <footer class="footer">
+                <span class="total fl" id="total">¥ 0.00</span>
+                <input type="submit" value="确定" class="w-btn fr">
+            </footer>
         </form>
-        <div class="place"></div>
     </div>
-    <footer class="footer">
-        <span class="total fl" id="total">¥ 0.00</span>
-        <input type="submit" value="确定" class="w-btn fr">
-    </footer>
     <script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
