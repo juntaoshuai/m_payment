@@ -157,7 +157,7 @@ validateEmpty("#userName","请输入姓名");
 validateEmpty("#companyName","请输入公司名称");
 validateEmpty("#address","请输入邮寄地址");
 validateEmpty("input[name=invoiceCompany]","请输入开票公司名称");
-validateEmpty("#address","请输入邮寄地址");
+validateEmpty("input[name=dutyNumber]","请输入税号");
 
  $(".form .txt").on('focus',function(){
     $(this).next(".Validform_checktip").remove();
