@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>OFweek展会网 登记</title>
+    <meta name="applicable-device" content="mobile" />
+    <link rel="apple-touch-icon-precomposed" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body class="bggrey">
+    <div id="main">
+        <div class="selected-ticket">
+            <div class="shd">
+                <h3 class="fl">已选门票信息</h3>
+                <a href="#">重新选票 >></a>
+            </div>
+            <ul class="selected-ticket-list">
+                <li>
+                    <div class="ticket-left fl">
+                        <h3>投融资专场</h3>
+                        <div class="pricewrap">
+                            <span class="price">￥1000.00</span>
+                            <span class="discount">9折优惠</span>
+                        </div>
+                    </div>
+                    <div class="ticket-right fr">
+                        <p class="remark">14:00~17:30</p>
+                        <p class="num">2张</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="ticket-left fl">
+                        <h3>投融资专场</h3>
+                        <div class="pricewrap">
+                            <span class="price">￥1000.00</span>
+                            <span class="discount">9折优惠</span>
+                        </div>
+                    </div>
+                    <div class="ticket-right fr">
+                        <p class="remark">14:00~17:30</p>
+                        <p class="num">2张</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form action="" method="post" class="form" id="ticketForm">
+            <div class="relation-info">
+                <div class="title">
+                    <h3>联系人信息</h3>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>姓名：</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="userName" id="userName">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l">部门/职务:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="department" id="department">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>手机/电话:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="telephone" id="telephone">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>邮       箱: </span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="email" id="email">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>公司名称:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="companyName" id="companyName">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l"><i class="xin">*</i>邮寄地址:</span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="address" id="address">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="item-l">备       注: </span>
+                    <div class="item-r">
+                        <input type="text" class="txt" name="remark" id="remark">
+                    </div>
+                </div>
+            </div>
+            <div class="section-invoice">
+                <div class="form-item">
+                    <span class="item-l">发票：</span>
+                    <div class="item-r">
+                        <div class="fptype">
+                            <input type="radio" name="isinvoice" value="1" class="active"><span>是</span>
+                            <input type="radio" name="isinvoice" checked="checked" value="0" class=""><span>否</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="have-invoice" style="display: block;">
+                    <div class="form-item">
+                        <span class="item-l">发票类型：</span>
+                        <div class="item-r">
+                            <p class="invoice">
+                                <span class="active">普通发票</span>
+                                <span>增值税专用</span>
+                            </p>
+                            <input type="hidden" name="invoiceType" value="1">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <span class="item-l">开票内容：</span>
+                        <div class="item-r">服务费</div>
+                    </div>
+                    <div class="form-item-invocom" style="display:block;">
+                        <span class="item-l-invocom"><i class="xin">*</i>开票公司名称：</span>
+                        <div class="item-r-invocom">
+                            <input type="text" class="txt" name="invoiceCompany">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <span class="item-l"><i class="xin">*</i>税号：</span>
+                        <div class="item-r">
+                            <input type="text" class="txt" name="dutyNumber">
+                        </div>
+                    </div>
+                    <div class="invoice-con dn" style="display: block;">
+                    </div>
+                    <div class="invoice-con dn">
+                        <div class="form-item">
+                            <span class="item-l">注册地址：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="registerAddress">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <span class="item-l">注册地址电话：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="AddressTele">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <span class="item-l">银行开户名称：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="bankName">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <span class="item-l">开户银行账户：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="bankAccount">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <span class="item-l">开户银行姓名：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="bankUser">
+                            </div>
+                        </div>
+                       <!--  <div class="form-item">
+                            <span class="item-l" style="width:200px;">增值税一般纳税人证书扫面件：</span>
+                            <div class="item-r">
+                                <input type="hidden" name="uploadFile" value="" id="uploadFile" class="inputtext">
+                                <iframe width="400" scrolling="no" height="40" id="small_frame_content" frameborder="0" src="http://www.ofweek.com/buy/buyTicket.do?method=uploadticketImageIndex"></iframe>
+                                <span id="pic0" style="display:none;">
+                                        <a id="pic0a" href="" target="_blank"></a>
+                                </span>
+                            </div>
+                        </div> -->
+                        <div class="form-item">
+                            <span class="item-l">发票送达地址：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="invoiceAddress">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <span class="item-l">联系人：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="invoiceContact">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <span class="item-l">电话：</span>
+                            <div class="item-r">
+                                <input type="text" class="txt" name="invoiceTele">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="have-invoice" style="display: none;"></div>
+            </div>
+            <div class="paybox">
+                <div class="title">
+                    <h3>选择支付方式</h3>
+                </div>
+                <div class="pay-way-wrap">
+                    <div class="pay-tabs clearfix">
+                        <span><i class="ico-zfb"></i></span>
+                        <span class="weixin"><i class="ico-weixin"></i>微信支付</span>
+                        <span class="bank"><i class="ico-bank"></i>银行汇款</span>
+                    </div>
+                </div>
+            </div>
+            <div class="place"></div>
+          
+        </form>
+    </div>
+      <footer class="footer">
+                <span class="total fl" id="total">¥ 0.00</span>
+                <input type="submit" value="确定" class="w-btn fr" id="ticketSub">
+     </footer>
+    <script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

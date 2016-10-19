@@ -18,33 +18,19 @@
                 <h3 class="fl">已选门票信息</h3>
                 <a href="#">重新选票 >></a>
             </div>
-            <ul class="selected-ticket-list">
+            <ul class="selected-ticket-list media-list">
                 <li>
                     <div class="ticket-left fl">
-                        <h3>投融资专场</h3>
+                        <h3>媒体票</h3>
                         <div class="pricewrap">
-                            <span class="price">￥1000.00</span>
-                            <span class="discount">9折优惠</span>
+                            <span class="price">免费</span>
                         </div>
                     </div>
                     <div class="ticket-right fr">
-                        <p class="remark">14:00~17:30</p>
-                        <p class="num">2张</p>
+                        <p class="num">3张</p>
                     </div>
                 </li>
-                <li>
-                    <div class="ticket-left fl">
-                        <h3>投融资专场</h3>
-                        <div class="pricewrap">
-                            <span class="price">￥1000.00</span>
-                            <span class="discount">9折优惠</span>
-                        </div>
-                    </div>
-                    <div class="ticket-right fr">
-                        <p class="remark">14:00~17:30</p>
-                        <p class="num">2张</p>
-                    </div>
-                </li>
+                
             </ul>
         </div>
         <form action="" method="post" class="form" id="ticketForm">
@@ -55,50 +41,50 @@
                 <div class="form-item">
                     <span class="item-l"><i class="xin">*</i>姓名：</span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="userName" required="required">
+                        <input type="text" class="txt" name="userName" id="userName">
                     </div>
                 </div>
                 <div class="form-item">
                     <span class="item-l">部门/职务:</span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="userName">
+                        <input type="text" class="txt" name="department" id="department">
                     </div>
                 </div>
                 <div class="form-item">
                     <span class="item-l"><i class="xin">*</i>手机/电话:</span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="telephone">
+                        <input type="text" class="txt" name="telephone" id="telephone">
                     </div>
                 </div>
                 <div class="form-item">
                     <span class="item-l"><i class="xin">*</i>邮       箱: </span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="email">
+                        <input type="text" class="txt" name="email" id="email">
                     </div>
                 </div>
                 <div class="form-item">
                     <span class="item-l"><i class="xin">*</i>公司名称:</span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="companyName">
+                        <input type="text" class="txt" name="companyName" id="companyName">
                     </div>
                 </div>
                 <div class="form-item">
                     <span class="item-l"><i class="xin">*</i>邮寄地址:</span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="address">
+                        <input type="text" class="txt" name="address" id="address">
                     </div>
                 </div>
                 <div class="form-item">
                     <span class="item-l">备       注: </span>
                     <div class="item-r">
-                        <input type="text" class="txt" name="remark">
+                        <input type="text" class="txt" name="remark" id="remark">
                     </div>
                 </div>
             </div>
             <div class="place"></div>
             <footer class="footer">
                 <span class="total fl" id="total">¥ 0.00</span>
-                <input type="submit" value="确定" class="w-btn fr">
+                <input type="submit" value="确定" class="w-btn fr" id="ticketSub">
             </footer>
         </form>
     </div>

@@ -77,7 +77,7 @@ ins, a { text-decoration: none }
 
 .place{height: 1.25rem;}
 
-.footer{width:100%;max-width: 750px; box-sizing: border-box; background: #c60000;padding: .28rem .23rem;overflow: hidden;position:fixed;bottom:0;}
+.footer{width:100%;max-width: 750px; box-sizing: border-box; background: #c60000;padding: .28rem .23rem;overflow: hidden;position:fixed;bottom:0;z-index: 999;}
 .footer .total{font-size: .4rem;color:#fff;}
 .w-btn{width:1.84rem;height: .69;background: #fbfbfb;border-radius: .05rem;border:none;font-size:.3rem;color:#c60000;line-height: .69rem;}
 
@@ -96,10 +96,13 @@ ins, a { text-decoration: none }
 .selected-ticket-list .ticket-right{/*width:1.84rem;*/padding-right: .25rem;text-align: center;}
 .selected-ticket-list .remark{font-size: .2rem;line-height:.2rem; color:#d4d4d4;padding: .37rem 0 .65rem;}
 .selected-ticket-list .num{font-size: .34rem;line-height: .34rem; font-weight: bold;color:#f9d17a;}
+.media-list .num{padding-top:.82rem;}
+
 .form{background: #fff;}
+.title{padding:.22rem 0;}
 .title h3{font-size: .28rem;height:.28rem;color:#333;position: relative;padding-left: .19rem;}
 .title h3:before{content: "";position: absolute;width:.1rem;height: .25rem; background: #c60000;left:0;top:.08rem;}
-.relation-info{padding:0 .77rem 0 .24rem;}
+.relation-info,.section-invoice{padding:0 .15rem 0 .15rem;}
 
 /*表单*/
 .form{margin-top: .15rem;padding:0 0 .25rem;}
@@ -121,11 +124,43 @@ ins, a { text-decoration: none }
     display: block;
     box-sizing: border-box;
 }
+.item-l-invocom{
+    font-size:.24rem;
+    line-height:.65rem;
+    color: #0e0d0d;
+    color:#000;
+    display: block;
+}
+.form .section-invoice .item-l{width:1.7rem;}
 .form .item-r{
 	width: 100%;
 	box-flex:1;
 	 -webkit-box-flex:1;
    -moz-box-flex:1;
+   position: relative;
+   height: .63rem;
+   line-height: .63rem;
+}
+.item-r-invocom{position: relative;}
+
+
+.Validform_checktip{
+	position: absolute;
+	right:.2rem;
+	top:0;
+    font-size: .24rem;
+    line-height: .63rem;
+    color:#ef0a0a;
+}
+.pay_checktip{
+    height: .75rem;
+    font-size: .24rem;
+    line-height: .75rem;
+    color:#ef0a0a; 
+    background: #e5e5e5;
+    display: block;
+    margin-top: .38rem;
+    padding-left: .45rem;
 }
 
 .form .xin {
@@ -133,6 +168,7 @@ ins, a { text-decoration: none }
     font-size:.24rem;
     margin-right:.08rem;
     font-weight: normal;
+
 
 }
 
@@ -151,5 +187,20 @@ ins, a { text-decoration: none }
     
 }
 
-.item-r .fptype span{margin:0 20px 0 5px; display: inline-block;vertical-align: middle;}
-.item-r .fptype input{vertical-align: middle;}
+.form .invoice span{width:1.78rem;height:.63rem;border:1px solid #e1e1e1;line-height:.63rem;display: inline-block;cursor: pointer;margin-right: 6px;margin-right:.23rem;text-align:center;border-radius: 3px;}
+.form .invoice span.active{border:2px solid #d65353;width:1.76rem;height:.61rem;line-height:.61rem;}
+.have-invoice{display: none;}
+
+.pay-tabs{display: box;display:-webkit-box;margin-left: .22rem;}
+.pay-tabs span{width:100%;height: .61rem;display: block; border:2px solid #e1e1e1;line-height:.61rem;text-align: center;margin-right:.3rem;font-size:.24rem; cursor: pointer;box-flex:1;-webkit-box-flex:1;}
+.pay-tabs span.active{border:2px solid #c40909;}
+.pay-tabs span i{display: inline-block;vertical-align:middle;margin-right:.03rem;}
+.pay-tabs span .ico-weixin{margin-right: .1rem;}
+.pay-tabs-con{display: none;}
+.weixin{color:#3c915f;}
+.bank{color:#154889;}
+.ico-zfb{width:1.18rem;height:.38rem;background:url(../images/zfb.png) 0 center no-repeat;background-size:auto 100%;}
+.ico-weixin{width:.51rem;height:.51rem;background:url(../images/weixin.png) 0 center no-repeat;background-size:auto 100%;}
+.ico-bank{width:.65rem;height:.32rem;background:url(../images/bank.png) 0 center no-repeat;background-size:auto 100%;}
+
+.paybox .title{padding-left: .23rem;}
