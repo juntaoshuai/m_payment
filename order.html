@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="bggrey">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -16,8 +16,9 @@
         <div class="selected-ticket">
             <div class="shd">
                 <h3 class="fl">已选门票信息</h3>
-                <a href="#">重新选票 >></a>
+                <a href="#">重新选票 &gt;&gt;</a>
             </div>
+            <div class="greyblock"></div>
             <ul class="selected-ticket-list">
                 <li>
                     <div class="ticket-left fl">
@@ -47,13 +48,14 @@
                 </li>
             </ul>
         </div>
+        <div class="greyblock"></div>
         <form action="" method="post" class="form" id="ticketForm">
             <div class="relation-info">
                 <div class="title">
                     <h3>联系人信息</h3>
                 </div>
                 <div class="form-item">
-                    <span class="item-l"><i class="xin">*</i>姓名：</span>
+                    <span class="item-l"><i class="xin">*</i>姓&#x3000;&#x3000;名:</span>
                     <div class="item-r">
                         <input type="text" class="txt" name="userName" id="userName">
                     </div>
@@ -71,7 +73,7 @@
                     </div>
                 </div>
                 <div class="form-item">
-                    <span class="item-l"><i class="xin">*</i>邮       箱: </span>
+                    <span class="item-l"><i class="xin">*</i>邮&#x3000;&#x3000;箱: </span>
                     <div class="item-r">
                         <input type="text" class="txt" name="email" id="email">
                     </div>
@@ -89,19 +91,26 @@
                     </div>
                 </div>
                 <div class="form-item">
-                    <span class="item-l">备       注: </span>
+                    <span class="item-l">备&#x3000;&#x3000;注: </span>
                     <div class="item-r">
                         <input type="text" class="txt" name="remark" id="remark">
                     </div>
                 </div>
             </div>
+            <div class="greyblock"></div>
             <div class="section-invoice">
                 <div class="form-item">
                     <span class="item-l">发票：</span>
                     <div class="item-r">
                         <div class="fptype">
-                            <input type="radio" name="isinvoice" value="1" class="active"><span>是</span>
-                            <input type="radio" name="isinvoice" checked="checked" value="0"><span>否</span>
+                            <label>
+                                <input type="radio" name="isinvoice" value="1" class="active">
+                                <span>是</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="isinvoice" checked="checked" value="0">
+                                <span>否</span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -120,19 +129,19 @@
                         <span class="item-l">开票内容：</span>
                         <div class="item-r">服务费</div>
                     </div>
-                    <div class="form-item-invocom" style="display:block;">
+                    <div class="form-item-invocom">
                         <span class="item-l-invocom"><i class="xin">*</i>开票公司名称：</span>
                         <div class="item-r-invocom">
                             <input type="text" class="txt" name="invoiceCompany">
                         </div>
                     </div>
                     <div class="form-item">
-                        <span class="item-l"><i class="xin">*</i>税号：</span>
+                        <span class="item-l"><i class="xin">*</i>税&#x3000;&#x3000;号：</span>
                         <div class="item-r">
                             <input type="text" class="txt" name="dutyNumber">
                         </div>
                     </div>
-                    <div class="invoice-con dn" style="display: block;">
+                    <div class="invoice-con">
                     </div>
                     <div class="invoice-con dn">
                         <div class="form-item">
@@ -165,7 +174,7 @@
                                 <input type="text" class="txt" name="bankUser">
                             </div>
                         </div>
-                       <!--  <div class="form-item">
+                        <!--  <div class="form-item">
                             <span class="item-l" style="width:200px;">增值税一般纳税人证书扫面件：</span>
                             <div class="item-r">
                                 <input type="hidden" name="uploadFile" value="" id="uploadFile" class="inputtext">
@@ -182,13 +191,13 @@
                             </div>
                         </div>
                         <div class="form-item">
-                            <span class="item-l">联系人：</span>
+                            <span class="item-l">联&#x3000;系&#x3000;人：</span>
                             <div class="item-r">
                                 <input type="text" class="txt" name="invoiceContact">
                             </div>
                         </div>
                         <div class="form-item">
-                            <span class="item-l">电话：</span>
+                            <span class="item-l">电&#x3000;&#x3000;&#x3000;话：</span>
                             <div class="item-r">
                                 <input type="text" class="txt" name="invoiceTele">
                             </div>
@@ -197,6 +206,7 @@
                 </div>
                 <div class="have-invoice" style="display: none;"></div>
             </div>
+            <div class="greyblock"></div>
             <div class="paybox">
                 <div class="title">
                     <h3>选择支付方式</h3>
@@ -210,13 +220,12 @@
                 </div>
             </div>
             <div class="place" style="height:2rem;"></div>
-          
         </form>
     </div>
-      <footer class="footer">
-                <span class="total fl" id="total">¥ 0.00</span>
-                <input type="submit" value="确定" class="w-btn fr" id="ticketSub">
-     </footer>
+    <footer class="footer">
+        <span class="total fl" id="total">¥ 0.00</span>
+        <input type="submit" value="确定" class="w-btn fr" id="ticketSub">
+    </footer>
     <script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
