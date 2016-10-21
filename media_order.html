@@ -10,28 +10,28 @@
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-
 <body>
     <div id="main">
         <div class="selected-ticket">
             <div class="shd">
                 <h3 class="fl">已选门票信息</h3>
-                <a href="#">重新选票 >></a>
+                <a href="javascript:history.go(-1);">重新选票 >></a>
             </div>
             <div class="greyblock"></div>
             <ul class="selected-ticket-list media-list">
+             <script type="text/x-jsrender" id="temp">
                 <li>
                     <div class="ticket-left fl">
-                        <h3>媒体票</h3>
+                        <h3>{{:sub_ticketname}}</h3>
                         <div class="pricewrap">
                             <span class="price">免费</span>
                         </div>
                     </div>
                     <div class="ticket-right fr">
-                        <p class="num">3张</p>
+                        <p class="num">{{:sub_num}}张</p>
                     </div>
                 </li>
-                
+                </script>
             </ul>
         </div>
         <div class="greyblock"></div>
@@ -84,14 +84,21 @@
                 </div>
             </div>
             <div class="place"></div>
-            <footer class="footer">
-                <span class="total fl" id="total">¥ 0.00</span>
-                <input type="submit" value="确定" class="w-btn fr" id="ticketSub">
-            </footer>
         </form>
     </div>
-    <script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <footer class="footer">
+        <input type="button" value="提交订单" class="footer-btn" id="ticketSub">
+     </footer>
+     <script src="http://www.ofweek.com/seminar/2016/high_tech/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jsrender.min.js"></script>
     <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+       $(function(){
+         var url = decodeURI(window.location.href);
+         var ticket=parseQueryString(url)
+        $(".selected-ticket-list").html($("#temp").render(ticket));
+       });
+    </script>
 </body>
 
 </html>
