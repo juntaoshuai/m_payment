@@ -1,0 +1,5 @@
+url:
+http://www.ofweek.com/buy/buyTicket.do?userName=xitao&job=fdf&telephone=fdff&email=fdfdf@qq.com&companyName=sz&address=fdfdfdf&remark=&ticketType=3&ticketNumber=1&rank=1&meetingType=1&payType=1
+返回:
+
+{"status":"y","orderno":201,"payType":1,"totalPrice":0,"ticketTypeName":"OFweek合作企业福利票","meetingTypeName":"2016中国高科技大会"}

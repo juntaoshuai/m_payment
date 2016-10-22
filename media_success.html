@@ -16,14 +16,23 @@
         <h2>恭喜您，报名成功！</h2>
         <p>您已成功报名以下会议</p>
         <div class="meeting">
-            <p>OFweek 2016中国高科技产业大会</p>
-            <p>OFweek合作企业福利票</p>
+            <p id="meetingTypeName">OFweek 2016中国高科技产业大会</p>
+            <p id="ticketTypeName">OFweek合作企业福利票</p>
         </div>
         <p class="tips">我们将尽快查收并与您确认参会，热枕期待您的出席！</p>
     </section>
     <a href="#" class="back-btn">返回行业会议</a>
-    <script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://www.ofweek.com/seminar/2016/high_tech/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+       $(function(){
+         var url = decodeURI(window.location.href),
+         ticket=parseQueryString(url);
+         $("#meetingTypeName").html(ticket.meetingTypeName);
+         $("#ticketTypeName").html(ticket.ticketTypeName);
+         
+       });
+    </script>
 </body>
 
 </html>

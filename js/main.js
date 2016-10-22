@@ -38,7 +38,7 @@
         $("input[name=invoiceType]").val($(this).index() + 1);
     });
 
-    //验证
+    //表单验证
     function validateEmpty(obj, msg, val) {
         $(obj).on('blur change', function() {
             val = val || "";
@@ -80,7 +80,6 @@
                 $(obj).removeClass("error");
             }
 
-
         });
     }
 
@@ -98,7 +97,6 @@
         });
 
     }
-
 
     function validateEmail(obj, msg1, msg2) {
         $(obj).on('blur change', function() {
@@ -143,19 +141,56 @@
         $(this).next(".Validform_checktip").remove();
     });
 
-    $("#ticketForm").on('click', '.Validform_checktip', function() {
+    $("#orderForm,#mediaOrderForm").on('click', '.Validform_checktip', function() {
         $(this).prev("input").focus();
     })
 
 
 
-    $("#ticketSub").click(function() {
+    $("#orderSub").click(function() {
         $(".form .txt").trigger("change");
         payWayCheck();
         if ($(".error").length) {
             return false;
         } else {
-            return true;
+            var url = $("#mediaOrderForm").attr("action"),
+                data = encodeURI($("#mediaOrderForm").serialize());
+            $.ajax({
+                url: "js/ajax2.txt",
+                data: data,
+                success: function(data) {
+                    var data = $.parseJSON(data);
+                    if (data.status == "y") {
+                        if(data.payType =="3"){ 
+                            window.location.href = "http://www.ofweek.com/alipayapi.jsp?WIDout_trade_no="+data.orderno+"&WIDsubject="+encodeURIComponent(data.ticketTypeName)+"&WIDtotal_fee="+data.totalPrice+"&WIDbody="+encodeURIComponent(data.meetingTypeName);
+                        }
+                        window.location.href = "media_success.html?&meetingTypeName=" + data.meetingTypeName + "&ticketTypeName=" + data.ticketTypeName;
+                    }
+                }
+            });
+        }
+
+    });
+
+    //媒体订单提交
+    $("#mediaOrderSub").click(function() {
+        $(".form .txt").trigger("change");
+        if ($(".error").length) {
+            return false;
+        } else {
+            var url = $("#mediaOrderForm").attr("action"),
+                data = encodeURI($("#mediaOrderForm").serialize());
+            $.ajax({
+                url: "js/ajax2.txt",
+                data: data,
+                success: function(data) {
+                    var data = $.parseJSON(data);
+                    if (data.status == "y") {
+                        window.location.href = "media_success.html?&meetingTypeName=" + data.meetingTypeName + "&ticketTypeName=" + data.ticketTypeName;
+                    }
+                }
+            });
+
         }
 
 
@@ -166,51 +201,38 @@
 
         //计算价格
         function countPrice($num) {
-          var singlePirce=$num.closest("li").find("input[name=price]").val(),
-              zhe=$num.closest("li").find("input[name=discount]").val();
-              totalPrice=singlePirce * zhe * $num.html();
-              if(singlePirce==0){  //媒体票
-                 $("#total").html(0);
-              }else{
-                 $("#total").html(totalPrice);
-              }
+            var singlePirce = $num.closest("li").find("input[name=price]").val(),
+                zhe = $num.closest("li").find("input[name=discount]").val();
+            totalPrice = singlePirce * zhe * $num.html();
+            if (singlePirce == 0) { //媒体票
+                $("#total").html(0);
+            } else {
+                $("#total").html(totalPrice);
+            }
         }
 
-       function setTicketInfo(numobj){
-           $("#sub_ticketname").val(numobj.closest("li").find(".ticketname").html()),
-           $("#sub_price").val(numobj.closest("li").find("input[name=price]").val()),
-           $("#sub_discount").val(numobj.closest("li").find("input[name=discount]").val()),
-           $("#sub_remark").val(numobj.closest("li").find(".remark").html()),
-           $("#sub_num").val(numobj.closest("li").find(".num").html());
-
-           /* return sub_ticket={
-              "sub_ticketname":sub_ticketname,
-              "sub_price":sub_price,
-              "sub_discount":sub_discount,
-              "sub_remark":sub_remark,
-              "sub_num":sub_num
-
-         
-            }*/
-
-
-      }
+        function setTicketInfo(numobj) {
+            $("#sub_ticketname").val(numobj.closest("li").find(".ticketname").html()),
+                $("#sub_price").val(numobj.closest("li").find("input[name=price]").val()),
+                $("#sub_discount").val(numobj.closest("li").find("input[name=discount]").val()),
+                $("#sub_remark").val(numobj.closest("li").find(".remark").html()),
+                $("#sub_num").val(numobj.closest("li").find(".num").html());
+        }
 
         //数量操作（票种只能单选,选择一种票后，其它票数量自动变为0）
         function numOpera(addobj, cutobj, inputobj) {
             var minNum = 1,
                 maxNum = 999;
-           //数量增
+            //数量增
             $("#ticketForm").on('click', addobj, function() {
                 var $num = $(this).prev(),
                     cur = $num.html();
-                    cur++;
-                if(cur>0){
-                  $num.prev().show();
-                }
-                else if(cur > maxNum) {
+                cur++;
+                if (cur > 0) {
+                    $num.prev().show();
+                } else if (cur > maxNum) {
                     $(this).hide();
-                }else{
+                } else {
                     $(this).show();
 
                 }
@@ -218,29 +240,22 @@
                 $num.html(cur).prev().show();
                 countPrice($num);
                 setTicketInfo($num);
-
-       /*    $("#sub_ticketname").val($(this).closest("li").find(".ticketname").html()),
-           $("#sub_price").val($(this).closest("li").find("input[name=price]").val()),
-           $("#sub_discount").val($(this).closest("li").find("input[name=discount]").val()),
-           $("#sub_remark").val($(this).closest("li").find(".remark").html()),
-           $("#sub_num").val($(this).closest("li").find(".num").html());*/
-
             });
 
-           //数量减
-            $("#ticketForm").on('click', cutobj, function(){
+            //数量减
+            $("#ticketForm").on('click', cutobj, function() {
                 var $num = $(this).next(),
                     cur = $num.html();
-                    cur--;
-                    $num.html(cur);
-                    if (cur<minNum) {
-                      $(this).hide();
-                    }else{
-                      $(this).show();
+                cur--;
+                $num.html(cur);
+                if (cur < minNum) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
 
-                    }
-                    countPrice($num);
-                });
+                }
+                countPrice($num);
+            });
         }
 
         numOpera(".add", ".cut", ".num");
@@ -248,26 +263,23 @@
         //ajax读取票种信息
 
 
-       /* $.getJSON('http://www.ofweek.com/queryTicketAjax.do?meetingType=1', function(data) {
-            $("#ticketForm .tab-hd").after($("#temp").render(data));
-        });*/
+        /* $.getJSON('http://www.ofweek.com/queryTicketAjax.do?meetingType=1', function(data) {
+             $("#ticketForm .tab-hd").after($("#temp").render(data));
+         });*/
 
-       
-
-        //表单提交时把门票信息传到支付确认页
+        //表单提交时把门票信息传到订单确认页
         $("#ticket-sub").click(function() {
-          var url='?sub_ticketname='+$("#sub_ticketname").val()+'&sub_price='+$("#sub_price").val()+'&sub_discount='+$("#sub_discount").val()+'&sub_remark='+$("#sub_remark").val()+'&sub_num='+$("#sub_num").val();
-            if ($("#total").html()>0) {
-               url="http://192.168.23.1:8080/m_payment/order.html"+url;
+            var url = '?sub_ticketname=' + $("#sub_ticketname").val() + '&sub_price=' + $("#sub_price").val() + '&sub_discount=' + $("#sub_discount").val() + '&sub_remark=' + $("#sub_remark").val() + '&sub_num=' + $("#sub_num").val();
+            if ($("#total").html() > 0) {
+                url = "http://192.168.23.1:8080/m_payment/order.html" + url;
             } else {
-              url="http://192.168.23.1:8080/m_payment/media_order.html"+url;
+                url = "http://192.168.23.1:8080/m_payment/media_order.html" + url;
             }
-           
-            $("#ticketForm").attr("action",url).submit();
+
+            $("#ticketForm").attr("action", url).submit();
 
         });
 
-     
 
 
 
@@ -277,8 +289,8 @@
 
     });
 
- //JS根据key值获取URL中的参数值及把URL的参数转换成json对象
-     function parseQueryString(url) {
+    //JS根据key值获取URL中的参数值及把URL的参数转换成json对象
+    function parseQueryString(url) {
         var reg_url = /^[^\?]+\?([\w\W]+)$/,
             reg_para = /([^&=]+)=([\w\W]*?)(&|$|#)/g,
             arr_url = reg_url.exec(url),
