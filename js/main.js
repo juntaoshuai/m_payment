@@ -22,13 +22,10 @@
         var index = $(this).index();
         if (index == 0) {
             $("input[name=payType]").val(3);
-        }
-        /*else if(index==1){
-                  $("input[name=payType]").val(2);
-                }*/
-        else {
+        } else if (index == 1) {
+            $("input[name=payType]").val(2);
+        } else {
             $("input[name=payType]").val(1);
-
         }
     });
 
@@ -51,18 +48,6 @@
                 $(obj).removeClass("error");
             }
         });
-    }
-
-    function validateExpo(obj, msg) {
-        var $msg = $('<span class="Validform_checktip"></span>');
-        $(".checkin-expo").closest(".w-form-item").find(".Validform_checktip").remove();
-        if (!$(obj).filter(":checked").length) {
-            $msg.html(msg).insertAfter($(".checkin-expo"));
-            $(obj).addClass("error");
-        } else {
-            $(obj).removeClass("error");
-        }
-
     }
 
     function validatePhone(obj) {
@@ -128,7 +113,18 @@
             $(".pay-tabs").removeClass("error");
         }
     }
-
+   
+  function validateInvoiceCompany(){
+  	  if($(".have-invoice:first").is(":visible")){
+  	  	alert("come");
+  	    validateEmpty("input[name=invoiceCompany]", "请输入开票公司名称");
+  	  }
+  }
+    function validateDutyNumber(){
+  	  if($(".have-invoice:first").is(":visible")){
+  	    validateEmpty("input[name=dutyNumber]", "请输入税号");
+  	  }
+  }
     validateEmpty("#userName", "请输入姓名");
     validateEmpty("#telephone", "请输入手机/电话");
     validateEmail("#email", "请输入邮箱", "不是正确的邮箱");
@@ -136,7 +132,7 @@
     validateEmpty("#address", "请输入邮寄地址");
     validateEmpty("input[name=invoiceCompany]", "请输入开票公司名称");
     validateEmpty("input[name=dutyNumber]", "请输入税号");
-
+  
     $(".form .txt").on('focus', function() {
         $(this).next(".Validform_checktip").remove();
     });
@@ -148,23 +144,37 @@
 
 
     $("#orderSub").click(function() {
-        $(".form .txt").trigger("change");
+        $(".form .txt").trigger("blur");
+         if($(".have-invoice:first").is(":hidden")){
+             $("input[name=invoiceCompany],input[name=dutyNumber]").removeClass("error").next().remove();
+         }
         payWayCheck();
         if ($(".error").length) {
             return false;
         } else {
-            var url = $("#mediaOrderForm").attr("action"),
-                data = encodeURI($("#mediaOrderForm").serialize());
+            var url = $("#orderForm").attr("action"),
+                data = encodeURI($("#orderForm").serialize());
             $.ajax({
-                url: "js/ajax2.txt",
+               // url: "js/ajax3.txt",
+                url:url,
                 data: data,
                 success: function(data) {
+                	
                     var data = $.parseJSON(data);
                     if (data.status == "y") {
-                        if(data.payType =="3"){ 
-                            window.location.href = "http://www.ofweek.com/alipayapi.jsp?WIDout_trade_no="+data.orderno+"&WIDsubject="+encodeURIComponent(data.ticketTypeName)+"&WIDtotal_fee="+data.totalPrice+"&WIDbody="+encodeURIComponent(data.meetingTypeName);
+                        if (data.payType == "3") { //支付宝支付
+                            window.location.href = "http://www.ofweek.com/alipayapi.jsp?WIDout_trade_no=" + data.orderno + "&WIDsubject=" + encodeURIComponent(data.ticketTypeName) + "&WIDtotal_fee=" + data.totalPrice + "&WIDbody=" + encodeURIComponent(data.meetingTypeName);
+                        }else if(data.payType == "2"){ //微信支付
+  
+                        }else{ //银行卡支付
+                        	 if(data.ticketTypeName=="高科技大会通票"){
+                               remark="";
+                            }else{
+                            	remark=$(".remark").html();
+                            }
+                        	window.location.href = "bank_pay.html?&meetingTypeName=" + data.meetingTypeName + "&ticketTypeName=" + data.ticketTypeName+"&remark="+remark;
+                        	
                         }
-                        window.location.href = "media_success.html?&meetingTypeName=" + data.meetingTypeName + "&ticketTypeName=" + data.ticketTypeName;
                     }
                 }
             });
@@ -181,7 +191,8 @@
             var url = $("#mediaOrderForm").attr("action"),
                 data = encodeURI($("#mediaOrderForm").serialize());
             $.ajax({
-                url: "js/ajax2.txt",
+                //url: "js/ajax2.txt",
+                url:url,
                 data: data,
                 success: function(data) {
                     var data = $.parseJSON(data);
@@ -259,33 +270,35 @@
         }
 
         numOpera(".add", ".cut", ".num");
+            
+      //关闭弹窗
+      $("body").on('click','.overlay',function(){
+        $(this).remove();
+      });
 
-        //ajax读取票种信息
-
-
-        /* $.getJSON('http://www.ofweek.com/queryTicketAjax.do?meetingType=1', function(data) {
-             $("#ticketForm .tab-hd").after($("#temp").render(data));
-         });*/
 
         //表单提交时把门票信息传到订单确认页
         $("#ticket-sub").click(function() {
-            var url = '?sub_ticketname=' + $("#sub_ticketname").val() + '&sub_price=' + $("#sub_price").val() + '&sub_discount=' + $("#sub_discount").val() + '&sub_remark=' + $("#sub_remark").val() + '&sub_num=' + $("#sub_num").val();
+            if($("#sub_num").val()==0){
+                clearTimeout(timer);
+                $("<div class='overlay'>请选择一种票</div>").appendTo($("body"));
+               var timer= setTimeout(function(){
+                    $(".overlay").remove();
+                },3000);
+
+            }else{
+            var url = '?sub_ticketname=' + $("#sub_ticketname").val() + '&sub_price=' + $("#sub_price").val() +"&total_price="+$("#total").html()+ '&sub_discount=' + $("#sub_discount").val() + '&sub_remark=' + $("#sub_remark").val() + '&sub_num=' + $("#sub_num").val();
             if ($("#total").html() > 0) {
                 url = "http://192.168.23.1:8080/m_payment/order.html" + url;
             } else {
                 url = "http://192.168.23.1:8080/m_payment/media_order.html" + url;
             }
 
-            $("#ticketForm").attr("action", url).submit();
+            $("#ticketForm").attr("action", url).submit();           
+            }
+     
 
         });
-
-
-
-
-
-
-
 
     });
 
@@ -304,3 +317,14 @@
         }
         return ret;
     }
+    
+//得到cookie
+function getCookie(key) {
+    var arr1 = document.cookie.split('; ');
+    for (var i=0; i<arr1.length; i++) {
+        var arr2 = arr1[i].split('=');
+        if ( arr2[0] == key ) {
+            return decodeURI(arr2[1]);
+        }
+    }
+}

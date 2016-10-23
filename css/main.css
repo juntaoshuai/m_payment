@@ -36,12 +36,6 @@ ins, a { text-decoration: none }
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; } 
 .dn{display: none;}
 
-/*@media screen and (min-width: 320px) {
-  html{font-size: 44px;}   
-} 
-@media screen and (min-width: 360px) {
-  html{font-size: 50px;}   
-} */
 @media screen and (min-width: 320px) {
   html{font-size: 50px;}   
 } 
@@ -51,9 +45,7 @@ ins, a { text-decoration: none }
 @media screen and (min-width: 414px) {
   html{font-size: 58px;}   
 } 
-@media screen and (min-width: 720px) {
-  html{font-size: 100px;}   
-} 
+
 
 #header{padding:.15rem 0 .22rem .24rem;}
 #header .logo img{width:1.44rem;height: .43rem;}
@@ -62,21 +54,22 @@ ins, a { text-decoration: none }
 #banner{background:url(../images/banner.png) center top no-repeat;background-size:100% 100%;width:100%;height:3rem;border-bottom:.15rem solid #e5e5e5;}
 
 .ticket-list li{border-bottom:1px solid #e1e1e1;padding: .25rem .23rem .28rem;}
-.ticket-list .ticket-left h3{font-size: .3rem;color:#000;}
-.ticket-list  .price{font-size: .2rem;font-weight: bold;color:#c60000;}
+.ticket-list h3{font-size: .3rem;color:#000;font-weight: normal;}
+.ticket-list  .price{font-size: .2rem;font-weight: bold;color:#c60000;display: inline-block;}
 .ticket-list  .price strong{font-size: .3rem;}
 .ticket-list .discount{width:.9rem;height:.25rem;background: #fe9900;font-size:.18rem;color:#fff;border-radius:.05rem;padding: 0 .12rem;}
 .ticket-list .explain{background: #fff4c7;}
 .ticket-list .num-opera{margin-top: .09rem;line-height: .4rem;}
 .ticket-list .num-opera span{float: left;}
-.ticket-list .add,.ticket-list .cut{width:.38rem;height: .38rem; line-height: .38rem; border:1px solid #e1e1e1;font-size: .3rem;color:#c60000;font-weight: bold;background: #fff;border-radius: 0;text-align: center;cursor:pointer;}
+.ticket-list .add,.ticket-list .cut{width:.48rem;height: .48rem; line-height: .48rem; border:1px solid #e1e1e1;font-size: .3rem;color:#c60000;font-weight: bold;background: #fff;border-radius: 0;text-align: center;cursor:pointer;}
 .ticket-list .cut{position: relative;display: none;}
-.ticket-list .cut:before{content:"";position: absolute;left:.1rem;top:.17rem;width:.18rem;height: .04rem;background: #c60000;overflow: hidden;}
+.ticket-list .cut:before{content:"";position: absolute;left: .14rem;top: .22rem;width:.18rem;height: .04rem;background: #c60000;overflow: hidden;}
 .ticket-list .num-opera .num{font-size: .26rem;color:#4c4c4c;padding: 0  .16rem;}
 .ticket-list .explain{padding: 0 .25rem .14rem .1rem;margin-top:.28rem;}
 .ticket-list .explain h4{font-size:.24rem;line-height: .4rem;padding-top: .05rem; color:#ff9a0f;background: url(../images/ico_clock.png) 0 .1rem no-repeat;background-size: .23rem .25rem;padding-left:.3rem;}
 .ticket-list .explain p{font-size: .22rem;line-height: .3rem; color:#878169;padding-left: .3rem;}
 .pricewrap{margin-top: .09rem;}
+.ticket-list .remark{font-size: .24rem;}
 
 .place{height: 1.25rem;}
 
@@ -95,8 +88,8 @@ ins, a { text-decoration: none }
 .selected-ticket .shd a{color:#48494a;}
 .selected-ticket-list{padding: .2rem .23rem .03rem .24rem;background: #fff;}
 .selected-ticket-list li{background:url(../images/ticket_bg.png) 0 0 no-repeat;background-size:100%;height: 2rem;margin-bottom: .25rem;}
-.selected-ticket-list .ticket-left{padding-left:.3rem;width:4.2rem;}
-.selected-ticket-list .ticket-left h3{font-size: .34rem;line-height:.34rem;color:#643e0d;border-bottom:1px solid #b79860;padding-top:.3rem;padding-bottom: .35rem;}
+.selected-ticket-list padding-left:.3rem;width:4.2rem;}
+.selected-ticket-list h3{font-size: .34rem;line-height:.34rem;color:#643e0d;border-bottom:1px solid #b79860;padding-top:.3rem;padding-bottom: .35rem;}
 .selected-ticket-list  .price{font-size: .4rem;font-weight: bold;color:#e94520;}
 .selected-ticket-list .discount{font-size:.2rem;color:#755323;padding: 0 .12rem;position: relative;}
 .selected-ticket-list .discount:after{content:url(../images/ico_arrow.png);width:.08rem;height: .08rem;position: absolute;bottom: 10px;right:-3px;}
@@ -194,14 +187,7 @@ ins, a { text-decoration: none }
     
 }
 
-
-.section-invoice{}
 .form-item-invocom{margin-bottom: .25rem;}
-
-
-
-
-
 
 .form .invoice span{width:47%;height:.63rem;border:1px solid #e1e1e1;line-height:.63rem;display: inline-block;cursor: pointer;margin-right: 6px;margin-right:1%;text-align:center;border-radius: 3px;}
 .form .invoice span.active{border-color:#d65353;height:.61rem;line-height:.61rem;}
@@ -225,7 +211,7 @@ ins, a { text-decoration: none }
 .success-bm{background: #fff;border-radius: .11rem;border: 1px solid #ccc;text-align:center;margin:.79rem .23rem .89rem;box-shadow: 0 0 5px #ebebeb}
 .success-bm h2{width:3.65rem;height:.67rem;line-height: .67rem; border:1px solid #c60000;border-radius: .33rem;margin:.7rem auto .46rem;font-size: .28rem;color:#c60000;}
 .success-bm h2:before{content:"";display:inline-block;vertical-align: middle; background:url(../images/ok.png) 0 0 no-repeat;background-size:contain;width:.34rem;height: .26rem;margin-right: .18rem;}
-.success-bm .tips{background: #f0f0f0;font-size:.22rem;color:#595959;line-height: .34rem;margin-top: .65rem;padding:.08rem 0;}
+.success-bm .tips{background: #f0f0f0;font-size:.22rem;color:#595959;line-height: .34rem;margin-top: .65rem;padding:.08rem .45rem;}
 .success-bm p{font-size: .3rem;color:#333;line-height: .52rem;}
 .back-btn{display:block;background:#c60000;height: .8rem;line-height: .8rem;color:#fff;font-size: .3rem;text-align: center;margin:0 .23rem;}
 
@@ -237,3 +223,19 @@ ins, a { text-decoration: none }
 .account-info{border-bottom: 1px solid #eeae95;margin:0 .23rem;padding:.38rem 0 .14rem;}
 .account-info p{font-size:.3rem;color:#333;line-height: .52rem;}
 .pay-tips{font-size: .22rem;color:#5c5b53;line-height: .34rem;padding:.13rem .23rem .16rem;}
+
+.overlay{
+    position: fixed;
+    width: 2.2rem;
+    height: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #e5e5e5;
+    margin: auto;
+    line-height: 2rem;
+    text-align: center;
+}

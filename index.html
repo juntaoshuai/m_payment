@@ -13,7 +13,7 @@
 
 <body>
     <header id="header" class="clearfix">
-        <a href="m.ofweek.com" class="logo fl"><img src="images/logo.png" /></a>
+        <a href="http://m.ofweek.com" class="logo fl"><img src="images/logo.png" /></a>
         <h1 class="fl">手机版</h1>
     </header>
     <div id="main">
@@ -26,13 +26,17 @@
                 {{if isshow==1}}
                 <li>
                 <div class="clearfix">
-                    <div class="ticket-left fl">
-                        <h3 class="ticketname">{{:ticketTypeName}}</h3>
-                        <div class="pricewrap">
+                    <div class="clearfix">
+                        <h3 class="ticketname fl">{{:ticketTypeName}}</h3>
+                        <p class="remark fr">{{:remark}}</p>
+    
+                    </div>
+                    <div class="clearfix">
+                     <div class="pricewrap fl">
                         {{if price==0}}
                             <span class="price">免费</span>
                         {{else}}
-                            <span class="price">￥<strong>{{:price}}.</strong>00</span>
+                            <p class="price">￥<strong>{{:price}}.</strong>00</p>
 
                          {{if discount==1}}
                             <span class="discount">无折扣</span>
@@ -44,9 +48,6 @@
                             <input type="hidden" name="price" value="{{:price}}">  
                             
                         </div>
-                    </div>
-                    <div class="ticket-right fr">
-                        <p class="remark">{{:remark}}</p>
                         <p class="num-opera fr">
                             <span class="cut"></span>
                             <span class="num">0</span>
@@ -57,7 +58,7 @@
                 {{if ticketTypeId==105}}
                 <div class="explain">
                     <h4>可参与全部活动, 与核心嘉宾深入交流, 获得全部服务权益</h4>
-                    <p>（享受服务权益：优先座位，大会会刊，精美礼品，自助午餐、 茶歇及晚宴交流机会。）
+                    <p>( 享受服务权益：优先座位，大会会刊，精美礼品，自助午餐、 茶歇及晚宴交流机会。)
                     </p>
                 </div>
                 {{/if}}
@@ -69,16 +70,17 @@
             {{if isshow==1}}
              <li>
                 <div class="clearfix">
-                    <div class="ticket-left fl">
-                        <h3 class="ticketname">{{:ticketTypeName}}</h3>
-                        <div class="pricewrap">
-                           <span class="price">免费</span>
+                    <div class="clearfix">
+                        <h3 class="ticketname fl">{{:ticketTypeName}}</h3>
+                         <p class="remark fr">{{:remark}}</p>
+                       
+                    </div>
+                    <div class="clearfix">
+                        <div class="pricewrap fl">
+                           <p class="price"><strong>免费</strong></p>
                            <input type="hidden" name="discount" value="{{:discount}}">
                            <input type="hidden" name="price" value="0">
                         </div>
-                    </div>
-                    <div class="ticket-right fr">
-                        <p class="remark">{{:remark}}</p>
                         <p class="num-opera fr">
                             <span class="cut"></span>
                             <span class="num">0</span>
@@ -93,8 +95,8 @@
                 {{else}}
                 <div class="explain">
                     <h4>可参与部分闭门及所有开放论坛，获得部分服务权益。</h4>
-                    <p>（合作企业凡是预约注册报名参会，经组委会审核通过，便可获
-    得免费参会名额！名额有限，预约从速！）</p>
+                    <p>( 合作企业凡是预约注册报名参会，经组委会审核通过，便可获
+    得免费参会名额！名额有限，预约从速！)</p>
                 </div>
                 {{/if}}
             </li>
@@ -117,7 +119,7 @@
             <input type="hidden" name="sub_price" id="sub_price">
             <input type="hidden" name="sub_discount" id="sub_discount">
             <input type="hidden" name="sub_remark" id="sub_remark">
-            <input type="hidden" name="sub_num" id="sub_num">
+            <input type="hidden" name="sub_num" id="sub_num" value="0">
             <input type="button" value="确定" class="w-btn fr" id="ticket-sub"> 
     </footer>
     <script src="http://www.ofweek.com/seminar/2016/high_tech/js/jquery-1.7.2.min.js" type="text/javascript"></script>
