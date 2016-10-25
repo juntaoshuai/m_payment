@@ -1,3 +1,7 @@
+ $(function() {
+    FastClick.attach(document.body);
+});
+
     $.tabs = function(tabs, tabcon, options) {
         var defaults = {
             event: "click",
@@ -155,7 +159,7 @@
             var url = $("#orderForm").attr("action"),
                 data = encodeURI($("#orderForm").serialize());
             $.ajax({
-               // url: "js/ajax3.txt",
+                //url: "js/ajax3.txt",
                 url:url,
                 data: data,
                 success: function(data) {
@@ -289,9 +293,9 @@
             }else{
             var url = '?sub_ticketname=' + $("#sub_ticketname").val() + '&sub_price=' + $("#sub_price").val() +"&total_price="+$("#total").html()+ '&sub_discount=' + $("#sub_discount").val() + '&sub_remark=' + $("#sub_remark").val() + '&sub_num=' + $("#sub_num").val();
             if ($("#total").html() > 0) {
-                url = "http://192.168.23.1:8080/m_payment/order.html" + url;
+                url = "order.html" + url;
             } else {
-                url = "http://192.168.23.1:8080/m_payment/media_order.html" + url;
+                url = "media_order.html" + url;
             }
 
             $("#ticketForm").attr("action", url).submit();           
